@@ -83,11 +83,13 @@
     padding: 20px;
   }
   
-  /* Fake image, just for this example */
-  .fakeimg {
-    background-color: #aaa;
-    width: 100%;
-    padding: 20px;
+  .image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 400px;
+    max-height: 450px;
+    width: 50%;
   }
   
   /* Footer */
