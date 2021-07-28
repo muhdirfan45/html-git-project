@@ -154,6 +154,13 @@ html {
   width: 50%;
 }
 
+.project-container {
+    padding: 10px 40px;
+    position: relative;
+    background-color: white;
+    width: 50%;
+  }
+
 /* The circles on the timeline */
 .container::after {
   content: "";
@@ -213,6 +220,14 @@ html {
 
 .timeline-content {
   padding: 20px 30px;
+  background-color: rgb(255, 255, 255);
+  position: relative;
+  border-radius: 6px;
+  color: black;
+}
+
+.project-content {
+  padding: 10px 10px;
   background-color: rgb(255, 255, 255);
   position: relative;
   border-radius: 6px;
