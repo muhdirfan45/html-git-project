@@ -21,7 +21,7 @@ jobs:
 
     - name: Test HTML
       run: |
-        curl https://htmltest.wjdp.uk | bash
+        curl https://htmltest.wjdp.uk | sudo bash -s -- -b /usr/local/bin
         bin/htmltest
 
     
