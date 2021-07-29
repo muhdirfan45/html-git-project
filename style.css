@@ -239,6 +239,8 @@ html {
 }
 
 .project-content {
+  text-align: center;
+  padding: 15px;
   padding: 10px 10px;
   background-color: rgb(255, 255, 255);
   position: relative;
