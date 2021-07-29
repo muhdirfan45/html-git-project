@@ -18,14 +18,15 @@ jobs:
         docker run \
         -v ${{ github.workspace }}:/srv/jekyll -v ${{ github.workspace }}/_site:/srv/jekyll/_site \
         jekyll/builder:latest /bin/bash -c "chmod -R 777 /srv/jekyll && jekyll build --future"
+
+    - uses: actions/cache@v2
+      with:
+        path: tmp/.htmltest
+        key: ${{ runner.os }}-htmltest
     
     - name: Test HTML
       run: |
         curl https://htmltest.wjdp.uk | bash
         bin/htmltest
 
-    - name: Deploy
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./public
+    
