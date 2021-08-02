@@ -127,6 +127,16 @@ html {
   border: 5px solid rgb(45, 211, 189);
 }
 
+.project-image {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 500px;
+  max-height: 550px;
+  width: 70%;
+  border: 5px solid black;
+}
+
 /* Timeline section */
 /* The actual timeline (the vertical ruler) */
 .timeline {
@@ -160,6 +170,7 @@ html {
     position: relative;
     background-color: white;
     width: 50%;
+    border-radius: 10px;
   }
 
 /* The circles on the timeline */
@@ -228,6 +239,8 @@ html {
 }
 
 .project-content {
+  text-align: center;
+  padding: 15px;
   padding: 10px 10px;
   background-color: rgb(255, 255, 255);
   position: relative;
