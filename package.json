@@ -1,0 +1,23 @@
+{
+  "name": "git-project",
+  "version": "1.0.0",
+  "description": "This is a repository aimed at gaining understanding to the CI/CD pipelines by implementing a website using HTML and CSS.",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/muhdirfan45/html-git-project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/muhdirfan45/html-git-project/issues"
+  },
+  "homepage": "https://github.com/muhdirfan45/html-git-project#readme",
+  "devDependencies": {
+    "jest": "^27.0.6"
+  }
+}
