@@ -1,0 +1,51 @@
+name: CI/CD Process
+
+on:
+  push:
+    branches: [ master, CICD ]
+  pull_request:
+    branches: [ master, CICD ]
+
+jobs:
+  build-deploy:
+    name: Build and deploy 
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v1
+    - name: Setup Node
+      uses: actions/setup-node@v1
+      with:
+          node-version: '11.x'
+
+    - name: Setup PHP
+      uses: shivammathur/setup-php@v1
+      with:
+        php-version: '7.4'
+
+    - name: Install the site dependencies
+      run: npm install
+    
+    - name: Build the site static assets
+      run: npm run build
+
+    - name: Start the PHP dev server in the background
+      run: nohup php -S 0.0.0.0:8080 > /dev/null 2>&1 &
+
+    - name: Crawl the website to get our nice HTML files
+      run: mkdir output && cd output && wget -k -K -E -r -p -N -F -nH -q
+    
+    - name: Copy the right static files
+      run: |
+        cp -r ./dist/* ./output/dist/
+        cp -r ./static/* ./output/static/
+    
+    - name: Find all artifacts from Wget and clean them up
+      run: cd output && find ./ -type f -exec sed -i 's/http\:\/\/localhost\:8080//g' {} \;
+    
+    - name: Install the Netlify CLI
+      run: npm install netlify-cli -g
+    
+    - name: Deploy the website
+      run: netlify deploy --prod --dir ./output/ --site= --auth= --timeout=600 --message "Deployed on $(date)"
