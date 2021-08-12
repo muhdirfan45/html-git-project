@@ -5,9 +5,9 @@ name: js Test
 
 on:
   push:
-    branches: [ master, js ]
+    branches: [ master, js, dev ]
   pull_request:
-    branches: [ master, js ]
+    branches: [ master, js, dev ]
 
 jobs:
   build:
