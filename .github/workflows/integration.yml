@@ -24,11 +24,6 @@ jobs:
       #    path: tmp/.integration
        #   key: ${{ runner.os }}-integration
 
-  
-  test:
-
-    runs-on: ubuntu-latest
-    steps:
     - name: HTML Test
       run: |
         curl https://htmltest.wjdp.uk | bash
