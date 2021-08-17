@@ -1,4 +1,4 @@
-name: Jekyll site CI
+name: Continuous Integration with Jekyll and HTMLTEST
 
 on:
   push:
@@ -18,6 +18,16 @@ jobs:
         docker run \
         -v ${{ github.workspace }}:/srv/jekyll -v ${{ github.workspace }}/_site:/srv/jekyll/_site \
         jekyll/builder:latest /bin/bash -c "chmod -R 777 /srv/jekyll && jekyll build --future"
+
+    - uses: actions/cache@v2
+        with:
+          path: tmp/.htmltest
+          key: ${{ runner.os }}-htmltest
+
+    - name: HTML Test
+      run: |
+        curl https://htmltest.wjdp.uk | bash
+        bin/htmltest
 
     
 
